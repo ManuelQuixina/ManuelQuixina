@@ -61,9 +61,22 @@ def converter():
         elif dados_destino == "Faraday":
             # Fórmula de Celsius para Faraday: F = (9/5) * C + 32
             valor_convertido = (9/5) * valor_celsius + 32
+            if valor_convertido < 32:
+                label_clima.config(text = "Clima Muito Frio", fg = "blue")
+            if valor_convertido > 33 and valor_convertido < 49:
+                label_clima.config(text = "Clima Frio", fg = "blue")
+            if valor_convertido >= 50 and valor_convertido < 76:
+                label_clima.config(text = "Clima Agradável", fg = "blue")
+            if valor_convertido >= 77 and valor_convertido < 95:
+                label_clima.config(text = "Clima Quente", fg = "blue")
+            else:
+                label_clima.config(text = "Clima Muito Quente", fg = "blue")
+
         elif dados_destino == "Kelvin":
             # Fórmula de Celsius para Kelvin: K = C + 273.15
             valor_convertido = valor_celsius + 273.15
+            if valor_convertido < 10:
+                label_clima.config(text = "Clima Muito Frio", fg = "blue")
         else:
             label_principal.config(text="Unidade inválida", fg="red")
             return
