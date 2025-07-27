@@ -24,33 +24,9 @@ def converter():
         elif dados_origem == "Faraday":
             # Fórmula de Faraday para Celsius: C = (5/9) * (F - 32)
             valor_celsius = (5/9) * (dados_inicial - 32)
-            if valor_celsius < 0:
-                label_clima.config(text = "Esta Muito Frio", fg = "blue")
-            if valor_celsius > 1 and valor_celsius < 9:
-                label_clima.config(text = "Está Frio", fg = "blue")
-            if valor_celsius == 10 and valor_celsius < 19:
-                label_clima.config(text = "Clima Fresco", fg = "blue")
-            if valor_celsius >= 20 and valor_celsius < 24:
-                label_clima.config(text = "Clima Agradável", fg = "blue")
-            if valor_celsius >= 25 and valor_celsius < 30:
-                label_clima.config(text = "Clima Quente", fg = "blue")
-            else:
-                label_clima.config(text = "Clima Muito Quente", fg = "blue")
-
         elif dados_origem == "Kelvin":
             # Fórmula de Kelvin para Celsius: C = K - 273.15
             valor_celsius = dados_inicial - 273.15
-            
-            if valor_celsius < 0:
-                label_clima.config(text = "Clima Muito Frio", fg = "blue")
-            if valor_celsius > 1 and valor_celsius < 14:
-                label_clima.config(text = "Clima Frio", fg = "blue")
-            if valor_celsius >= 15 and valor_celsius < 24:
-                label_clima.config(text = "Clima Confortável", fg = "blue")
-            if valor_celsius >= 25 and valor_celsius < 35:
-                label_clima.config(text = "Clima Quente", fg = "blue")
-            else:
-                label_clima.config(text = "Clima Muito Quente", fg = "blue")
         else:
             label_principal.config(text="Unidade inválida", fg="red")
             return
@@ -61,22 +37,9 @@ def converter():
         elif dados_destino == "Faraday":
             # Fórmula de Celsius para Faraday: F = (9/5) * C + 32
             valor_convertido = (9/5) * valor_celsius + 32
-            if valor_convertido < 32:
-                label_clima.config(text = "Clima Muito Frio", fg = "blue")
-            if valor_convertido > 33 and valor_convertido < 49:
-                label_clima.config(text = "Clima Frio", fg = "blue")
-            if valor_convertido >= 50 and valor_convertido < 76:
-                label_clima.config(text = "Clima Agradável", fg = "blue")
-            if valor_convertido >= 77 and valor_convertido < 95:
-                label_clima.config(text = "Clima Quente", fg = "blue")
-            else:
-                label_clima.config(text = "Clima Muito Quente", fg = "blue")
-
         elif dados_destino == "Kelvin":
             # Fórmula de Celsius para Kelvin: K = C + 273.15
             valor_convertido = valor_celsius + 273.15
-            if valor_convertido < 10:
-                label_clima.config(text = "Clima Muito Frio", fg = "blue")
         else:
             label_principal.config(text="Unidade inválida", fg="red")
             return
@@ -123,7 +86,6 @@ combo_lista2.current(0)
 # Criação do Botão "converter"
 botao_3 = Button(janela, width=25, text = "Converter", command=converter)
 botao_3.place(x=170, y=230)
-
 
 
 
